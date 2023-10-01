@@ -1,17 +1,6 @@
-module DriverBehavior
+module DriverBehaviour
 export initializeRoad
 
-
-#initial parameters - Simple Driver Behavior parameters
-averageReactionTimeDriver = 0.75
-tendancyChangeLanesDriver = 0.5
-tendancyAllowChangeLanesDriver = 0.5
-averageCarLengthDriver = 4.5
-
-#Road Property parameters
-numberLanesRoad = 3
-speedLimitRoad = 20
-lengthRoad = 1000
 
 """
     initializeRoad(numberLanesRoad::Integer, startingDensity::Float64, averageCarLengthDriver::Float64)
@@ -28,7 +17,7 @@ Initializes a road with a random distribution of cars with a selected total dens
 
 """
 
-function initializeRoad(numberLanesRoad::Integer, startingDensity::Float64, averageCarLengthDriver::Float64) #initializes traffic by a starting density ranging from 0 to 1
+function initializeRoad(numberLanesRoad::Integer, startingDensity::Float64, averageCarLengthDriver::Float64, lengthRoad) #initializes traffic by a starting density ranging from 0 to 1
     availableSpacesPerLane = floor(Int, lengthRoad / averageCarLengthDriver)
     posMatrix = zeros(availableSpacesPerLane, numberLanesRoad)
     for i in 1:numberLanesRoad
